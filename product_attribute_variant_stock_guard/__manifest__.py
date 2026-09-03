@@ -11,6 +11,9 @@ Prevents deletion of product template attribute values when related product vari
     "license": "LGPL-3",
     "depends": ["product", "stock"],
     "data": [],
+    "images": [
+        "static/description/banner.png",
+    ],
     "installable": True,
     "application": False,
     "auto_install": False,

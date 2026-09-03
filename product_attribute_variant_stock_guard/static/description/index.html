@@ -1,192 +1,329 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Product Attribute Variant Stock Guard</title>
+<div class="npt-product-attribute-variant-stock-guard">
     <style>
-        body {
-            margin: 0;
+        .npt-product-attribute-variant-stock-guard {
             color: #1f2933;
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-            background: #ffffff;
         }
-        .npt-page {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 32px 20px 48px;
-        }
-        .npt-header {
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 24px;
-            margin-bottom: 28px;
-        }
-        .npt-kicker {
-            margin: 0 0 8px;
+        .npt-product-attribute-variant-stock-guard .npt-kicker {
             color: #6b7280;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: .04em;
             text-transform: uppercase;
         }
-        h1 {
-            margin: 0 0 12px;
+        .npt-product-attribute-variant-stock-guard .npt-title {
             color: #111827;
             font-size: 34px;
             line-height: 1.2;
         }
-        h2 {
-            margin: 32px 0 12px;
+        .npt-product-attribute-variant-stock-guard .npt-section-title {
             color: #111827;
             font-size: 22px;
             line-height: 1.3;
         }
-        p {
-            margin: 0 0 14px;
-        }
-        ul, ol {
-            margin: 0;
-            padding-left: 22px;
-        }
-        li {
-            margin: 8px 0;
-        }
-        .npt-lead {
-            max-width: 760px;
-            color: #374151;
-            font-size: 17px;
-        }
-        .npt-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            margin-top: 16px;
-        }
-        .npt-box {
+        .npt-product-attribute-variant-stock-guard .npt-feature-card {
+            background: #f9fafb;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
+            height: 100%;
             padding: 18px;
-            background: #f9fafb;
         }
-        .npt-box strong {
+        .npt-product-attribute-variant-stock-guard .npt-feature-card strong {
+            color: #111827;
             display: block;
             margin-bottom: 6px;
-            color: #111827;
         }
-        .npt-note {
-            border-left: 4px solid #6b7280;
-            padding: 12px 16px;
+        .npt-product-attribute-variant-stock-guard .npt-note {
             background: #f9fafb;
+            border-left: 4px solid #6b7280;
             color: #374151;
+            padding: 12px 16px;
         }
-        .npt-publisher {
+        .npt-product-attribute-variant-stock-guard .npt-publisher {
             border-top: 1px solid #e5e7eb;
-            margin-top: 34px;
-            padding-top: 22px;
         }
-        a {
+        .npt-product-attribute-variant-stock-guard a {
             color: #0f766e;
             text-decoration: none;
         }
-        a:hover {
+        .npt-product-attribute-variant-stock-guard a:hover {
             text-decoration: underline;
         }
-        @media (max-width: 700px) {
-            .npt-page {
-                padding: 24px 16px 40px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            .npt-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
-</head>
-<body>
-    <main class="npt-page">
-        <header class="npt-header">
-            <p class="npt-kicker">Odoo Inventory</p>
-            <h1>Product Attribute Variant Stock Guard</h1>
-            <p class="npt-lead">
-                Prevents product attribute value deletion when linked variants still have on-hand or reserved stock in internal inventory locations.
-            </p>
-        </header>
 
-        <section>
-            <h2>Overview</h2>
-            <p>
-                This module adds a stock safety check when deleting product template attribute values.
-                If a related product variant has quantity or reserved quantity in an internal location, Odoo blocks the deletion and shows a user-facing warning.
-            </p>
-        </section>
-
-        <section>
-            <h2>Key Features</h2>
-            <div class="npt-grid">
-                <div class="npt-box">
-                    <strong>Attribute value deletion guard</strong>
-                    <p>Checks variants linked to the product template attribute value before allowing deletion.</p>
-                </div>
-                <div class="npt-box">
-                    <strong>On-hand stock protection</strong>
-                    <p>Blocks deletion when linked variants have positive quantity in internal stock locations.</p>
-                </div>
-                <div class="npt-box">
-                    <strong>Reserved stock protection</strong>
-                    <p>Blocks deletion when linked variants have reserved quantity in internal stock locations.</p>
-                </div>
-                <div class="npt-box">
-                    <strong>Standard Odoo warning</strong>
-                    <p>Uses an Odoo user error to explain that the variant cannot be deleted because it has inventory stock.</p>
+    <section>
+        <div class="container px-0">
+            <div class="row g-0">
+                <div class="col-12">
+                    <img
+                        src="banner.png"
+                        class="img-fluid w-100"
+                        alt="Product Attribute Variant Stock Guard for Odoo Inventory"
+                    >
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <h2>How It Works</h2>
-            <ol>
-                <li>A user attempts to delete a product template attribute value.</li>
-                <li>The module checks the product variants linked to that attribute value.</li>
-                <li>It searches internal inventory locations for positive on-hand quantity or reserved quantity.</li>
-                <li>If stock is found, deletion is stopped with a clear warning message.</li>
-                <li>If no linked variant stock is found, Odoo continues with the normal deletion flow.</li>
-            </ol>
-        </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="npt-kicker mb-2">Odoo Products and Inventory</p>
+                    <h1 class="npt-title mb-3">Product Attribute Variant Stock Guard</h1>
+                    <p class="mb-0">
+                        Product Attribute Variant Stock Guard prevents deleting product template attribute values when linked variants still have on-hand or reserved stock in internal inventory locations.
+                        It adds a focused validation rule to Odoo Products and Inventory so variant data cannot be removed while stock still exists.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>Benefits</h2>
-            <ul>
-                <li>Helps prevent accidental variant deletion while inventory still exists.</li>
-                <li>Protects stock consistency for products using attributes and variants.</li>
-                <li>Adds the check without adding menus, configuration screens, or new workflows.</li>
-            </ul>
-        </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Overview</h2>
+                    <p class="mb-0">
+                        This addon extends `product.template.attribute.value` deletion behavior.
+                        When a user attempts to delete a product template attribute value, the addon checks the variants linked to that value.
+                        If any linked variant has positive quantity or reserved quantity in an internal stock location, deletion is stopped with a clear Odoo warning.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>Screenshots</h2>
-            <p class="npt-note">
-                No screenshots are included in this package. Add real product screenshots under <strong>static/description/images/</strong> before publishing if screenshots are required for the listing.
-            </p>
-        </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Key Features</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="npt-feature-card">
+                        <strong>Attribute value deletion guard</strong>
+                        <p class="mb-0">Checks variants linked to the product template attribute value before allowing deletion.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="npt-feature-card">
+                        <strong>On-hand stock protection</strong>
+                        <p class="mb-0">Blocks deletion when a linked variant has positive quantity in an internal inventory location.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="npt-feature-card">
+                        <strong>Reserved stock protection</strong>
+                        <p class="mb-0">Blocks deletion when a linked variant has reserved quantity in an internal inventory location.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="npt-feature-card">
+                        <strong>Clear user warning</strong>
+                        <p class="mb-0">Shows an Odoo user error explaining that the variant cannot be deleted because it has stock in inventory.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>Compatibility</h2>
-            <ul>
-                <li>Odoo 18.0</li>
-                <li>Requires Product and Inventory.</li>
-            </ul>
-        </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">How It Works</h2>
+                    <ol class="mb-0">
+                        <li>A user attempts to delete a product template attribute value.</li>
+                        <li>The addon finds product variants linked to that attribute value.</li>
+                        <li>It checks stock quants in internal inventory locations for those variants.</li>
+                        <li>If on-hand quantity or reserved quantity is greater than zero, deletion is blocked.</li>
+                        <li>If no linked variant stock is found, Odoo continues with the normal deletion flow.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="npt-publisher">
-            <h2>Support / Publisher</h2>
-            <p>
-                <strong>Next Page Technologies Pvt Ltd</strong><br>
-                <a href="https://nextpagetechnologies.com" target="_blank" rel="noopener">https://nextpagetechnologies.com</a>
-            </p>
-        </section>
-    </main>
-</body>
-</html>
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Use Cases</h2>
+                    <ul class="mb-0">
+                        <li>Inventory teams that need protection against accidental variant attribute cleanup while stock remains.</li>
+                        <li>Product managers maintaining attributes and variants in databases with active inventory.</li>
+                        <li>Warehouses where reserved stock should prevent removal of related variant attribute values.</li>
+                        <li>Businesses that need a simple validation guard without adding new configuration screens.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Configuration / Setup</h2>
+                    <p class="mb-0">
+                        No configuration menu is added by this addon.
+                        Install it with Product and Inventory enabled, and the deletion validation is applied automatically when product template attribute values are removed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Stock-Based Deletion Protection</h2>
+                    <p>
+                        The addon checks linked product variants and prevents deletion when stock exists in internal inventory locations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <div class="row g-0">
+                <div class="col-12">
+                    <img
+                        src="images/description_01.png"
+                        class="img-fluid w-100"
+                        alt="Odoo product attribute value deletion blocked when linked variant has stock"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Inventory Quantity Validation</h2>
+                    <p>
+                        Both on-hand quantity and reserved quantity are checked for linked product variants in internal stock locations before allowing the delete operation.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <div class="row g-0">
+                <div class="col-12">
+                    <img
+                        src="images/description_02.png"
+                        class="img-fluid w-100"
+                        alt="Odoo inventory stock quantity validation for product variants before attribute value deletion"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Business Benefits</h2>
+                    <ul class="mb-0">
+                        <li>Helps prevent accidental deletion of variant-related attribute values while inventory exists.</li>
+                        <li>Protects consistency between product variant setup and stock records.</li>
+                        <li>Blocks deletion for both available stock and reserved stock.</li>
+                        <li>Adds protection without changing product creation, archiving, or normal inventory workflows.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Known Scope</h2>
+                    <p class="npt-note mb-0">
+                        This addon restricts deletion of product template attribute values when linked variants have stock. It does not add new stock reports, change stock valuation, restrict product archiving, or create new product attribute workflows.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Requirements / Dependencies</h2>
+                    <ul class="mb-0">
+                        <li>Odoo Product</li>
+                        <li>Odoo Inventory</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Compatibility</h2>
+                    <ul class="mb-0">
+                        <li>Odoo 18.0</li>
+                        <li>Technical addon name: product_attribute_variant_stock_guard</li>
+                        <li>License: LGPL-3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 npt-publisher pt-4">
+                    <h2 class="npt-section-title mb-3">Support / Contact</h2>
+                    <p class="mb-0">
+                        <strong>Next Page Technologies Pvt Ltd</strong><br>
+                        <a href="https://nextpagetechnologies.com" target="_blank" rel="noopener">https://nextpagetechnologies.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container px-0">
+            <div class="row g-0">
+                <div class="col-12">
+                    <img
+                        src="images/contact_us.png"
+                        class="img-fluid w-100"
+                        alt="Contact Next Page Technologies Pvt Ltd for Odoo addon support"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="npt-section-title mb-3">Publisher</h2>
+                    <p class="mb-0">
+                        <strong>Next Page Technologies Pvt Ltd</strong><br>
+                        <a href="https://nextpagetechnologies.com" target="_blank" rel="noopener">https://nextpagetechnologies.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

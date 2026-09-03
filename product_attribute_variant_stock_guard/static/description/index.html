@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Attribute Variant Stock Guard</title>
+    <style>
+        body {
+            margin: 0;
+            color: #1f2933;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+        .npt-page {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 32px 20px 48px;
+        }
+        .npt-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 24px;
+            margin-bottom: 28px;
+        }
+        .npt-kicker {
+            margin: 0 0 8px;
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+        h1 {
+            margin: 0 0 12px;
+            color: #111827;
+            font-size: 34px;
+            line-height: 1.2;
+        }
+        h2 {
+            margin: 32px 0 12px;
+            color: #111827;
+            font-size: 22px;
+            line-height: 1.3;
+        }
+        p {
+            margin: 0 0 14px;
+        }
+        ul, ol {
+            margin: 0;
+            padding-left: 22px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .npt-lead {
+            max-width: 760px;
+            color: #374151;
+            font-size: 17px;
+        }
+        .npt-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .npt-box {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 18px;
+            background: #f9fafb;
+        }
+        .npt-box strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #111827;
+        }
+        .npt-note {
+            border-left: 4px solid #6b7280;
+            padding: 12px 16px;
+            background: #f9fafb;
+            color: #374151;
+        }
+        .npt-publisher {
+            border-top: 1px solid #e5e7eb;
+            margin-top: 34px;
+            padding-top: 22px;
+        }
+        a {
+            color: #0f766e;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 700px) {
+            .npt-page {
+                padding: 24px 16px 40px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .npt-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="npt-page">
+        <header class="npt-header">
+            <p class="npt-kicker">Odoo Inventory</p>
+            <h1>Product Attribute Variant Stock Guard</h1>
+            <p class="npt-lead">
+                Prevents product attribute value deletion when linked variants still have on-hand or reserved stock in internal inventory locations.
+            </p>
+        </header>
+
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This module adds a stock safety check when deleting product template attribute values.
+                If a related product variant has quantity or reserved quantity in an internal location, Odoo blocks the deletion and shows a user-facing warning.
+            </p>
+        </section>
+
+        <section>
+            <h2>Key Features</h2>
+            <div class="npt-grid">
+                <div class="npt-box">
+                    <strong>Attribute value deletion guard</strong>
+                    <p>Checks variants linked to the product template attribute value before allowing deletion.</p>
+                </div>
+                <div class="npt-box">
+                    <strong>On-hand stock protection</strong>
+                    <p>Blocks deletion when linked variants have positive quantity in internal stock locations.</p>
+                </div>
+                <div class="npt-box">
+                    <strong>Reserved stock protection</strong>
+                    <p>Blocks deletion when linked variants have reserved quantity in internal stock locations.</p>
+                </div>
+                <div class="npt-box">
+                    <strong>Standard Odoo warning</strong>
+                    <p>Uses an Odoo user error to explain that the variant cannot be deleted because it has inventory stock.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <ol>
+                <li>A user attempts to delete a product template attribute value.</li>
+                <li>The module checks the product variants linked to that attribute value.</li>
+                <li>It searches internal inventory locations for positive on-hand quantity or reserved quantity.</li>
+                <li>If stock is found, deletion is stopped with a clear warning message.</li>
+                <li>If no linked variant stock is found, Odoo continues with the normal deletion flow.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Benefits</h2>
+            <ul>
+                <li>Helps prevent accidental variant deletion while inventory still exists.</li>
+                <li>Protects stock consistency for products using attributes and variants.</li>
+                <li>Adds the check without adding menus, configuration screens, or new workflows.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Screenshots</h2>
+            <p class="npt-note">
+                No screenshots are included in this package. Add real product screenshots under <strong>static/description/images/</strong> before publishing if screenshots are required for the listing.
+            </p>
+        </section>
+
+        <section>
+            <h2>Compatibility</h2>
+            <ul>
+                <li>Odoo 18.0</li>
+                <li>Requires Product and Inventory.</li>
+            </ul>
+        </section>
+
+        <section class="npt-publisher">
+            <h2>Support / Publisher</h2>
+            <p>
+                <strong>Next Page Technologies Pvt Ltd</strong><br>
+                <a href="https://nextpagetechnologies.com" target="_blank" rel="noopener">https://nextpagetechnologies.com</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>
